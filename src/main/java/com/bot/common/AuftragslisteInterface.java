@@ -1,5 +1,6 @@
 package com.bot.common;
 
+import com.bot.common.auftraege.Auftrag;
 import com.bot.common.auftraege.AuftragInterface;
 
 public interface AuftragslisteInterface {
@@ -13,5 +14,5 @@ public interface AuftragslisteInterface {
 	
 	public void clear();
 	
-	public int countsAuftraege(Class c);
+	public int countsAuftraege(Class<Auftrag> c);
 }

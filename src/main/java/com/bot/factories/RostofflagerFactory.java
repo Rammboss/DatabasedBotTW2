@@ -16,7 +16,7 @@ public class RostofflagerFactory {
 	
 	private static boolean USE_ITEM = false;
 	
-	private static final int INTERVALL = 5;
+	private static final int INTERVALL = 5; //in min
 	
 	private RostofflagerFactory(){
 		super();

@@ -19,8 +19,9 @@ public class DorfDaoImpl extends AbstractDao implements DorfDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Dorf> findbyName(String name) {
+	public List<Dorf> findByName(String name) {
 		Criteria criteria = getSession().createCriteria(Dorf.class);
+		
 
 		return criteria.add(Restrictions.like("name", name)).list();
 	}
@@ -29,6 +30,14 @@ public class DorfDaoImpl extends AbstractDao implements DorfDao {
 	public void updateDorf(Dorf dorf) {
 		getSession().update(dorf);
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Dorf findById(int id) {
+//		Criteria criteria = getSession().createCriteria(Dorf.class);
+//		return criteria.add(Restrictions.like("id", id)).list();
+		return (Dorf) getSession().get(Dorf.class,id);
 	}
 
 }

@@ -40,8 +40,9 @@ public class Icon implements IconInterface {
 		int counter = 0;
 
 		while (counter < withinMillisecounds / 200) {
+			System.out.println(check());
 			if (check()) {
-				System.out.println(check());
+
 				return true;
 			} else {
 				MouseRobot.wait(200);

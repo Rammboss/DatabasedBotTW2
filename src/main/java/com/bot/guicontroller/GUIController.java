@@ -1,6 +1,7 @@
 package com.bot.guicontroller;
 
 import com.bot.common.AuftragslisteInterface;
+import com.bot.common.auftraege.Auftrag;
 import com.bot.common.auftraege.AuftragInterface;
 import com.bot.settings.Utils;
 
@@ -28,6 +29,8 @@ public class GUIController implements Runnable {
 
 			}
 			System.out.println( "Anzahl Aufträge: " + list.size());
+			
+			
 			MouseRobot.wait(1000);
 		}
 	}

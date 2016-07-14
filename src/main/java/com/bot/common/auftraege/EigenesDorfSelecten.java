@@ -8,8 +8,8 @@ import com.bot.guicontroller.MouseRobot;
 
 public class EigenesDorfSelecten extends EnterKoordinaten{
 
-	public EigenesDorfSelecten(int p, Point farm) {
-		super(p, farm);
+	public EigenesDorfSelecten(int p, int x, int y) {
+		super(p, x,y);
 	}
 	
 	public void run(MouseRobot mr){

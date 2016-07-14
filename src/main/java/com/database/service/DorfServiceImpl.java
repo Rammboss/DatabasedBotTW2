@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.database.dao.DorfDao;
 import com.database.model.Dorf;
 
-@Service("graphService")
+@Service("dorfService")
 @Transactional
 public class DorfServiceImpl implements DorfService {
 
@@ -18,19 +18,25 @@ public class DorfServiceImpl implements DorfService {
 
 	@Override
 	public List<Dorf> findByName(String name) {
-		return dao.findbyName(name);
+		return dao.findByName(name);
 	}
 
 	@Override
 	public void saveDorf(Dorf dorf) {
 		dao.saveDorf(dorf);
-		
+
 	}
 
 	@Override
 	public void updateDorf(Dorf dorf) {
 		dao.updateDorf(dorf);
-		
+
+	}
+
+	@Override
+	public Dorf findById(int id) {
+
+		return dao.findById(id);
 	}
 
 }

@@ -1,9 +1,9 @@
 package com.bot.common;
 
 import java.util.Date;
-import java.util.Iterator;
 import java.util.PriorityQueue;
 
+import com.bot.common.auftraege.Auftrag;
 import com.bot.common.auftraege.AuftragInterface;
 import com.bot.guicontroller.MouseRobot;
 import com.bot.settings.Utils;
@@ -64,8 +64,9 @@ public class Auftragsliste implements AuftragslisteInterface {
 	/**
 	 * Funktiniert nicht
 	 */
-	public int countsAuftraege(Class c) {
+	public int countsAuftraege(Class<Auftrag> c) {
 		int counter = 0;
+		System.out.println("");
 		for(AuftragInterface a : liste){
 			if(a.getClass().equals(c.getClass()))
 				counter++;

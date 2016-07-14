@@ -3,12 +3,12 @@ package com.bot.common.auftraege;
 import com.bot.factories.BabaFarmFactory;
 import com.bot.guicontroller.Buttons;
 import com.bot.guicontroller.MouseRobot;
-import com.database.model.EigenesDorf;
+import com.bot.model.EigenesDorf;
 
 public class ChangeMyVillage extends EnterKoordinaten {
 
 	public ChangeMyVillage(int p, EigenesDorf dorf) {
-		super(p, dorf.getPosition());
+		super(p, dorf.getX(), dorf.getY());
 	}
 
 	public void run(MouseRobot robot) {

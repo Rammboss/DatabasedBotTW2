@@ -16,7 +16,7 @@ public class CheckRohstofflager extends EnterKoordinaten {
 	public static final int PRIO_CHECKROHSTOFFLAGER = 6;
 
 	public CheckRohstofflager(Rohstofflager lager, boolean item) {
-		super(PRIO_CHECKROHSTOFFLAGER, lager.getPosition());
+		super(PRIO_CHECKROHSTOFFLAGER, lager.getX(), lager.getY());
 		rohstofflager = lager;
 		this.item = item;
 	}

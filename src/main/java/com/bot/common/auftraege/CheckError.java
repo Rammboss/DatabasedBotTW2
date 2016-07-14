@@ -10,11 +10,12 @@ import com.bot.settings.Utils;
 
 public class CheckError extends EnterKoordinaten {
 
-	public CheckError(int p, Point farm) {
-		super(p, farm);
+	public CheckError(int p, int x, int y) {
+		super(p, x,y);
 	}
 
 	public void run(MouseRobot robot) {
+		
 		super.run(robot);
 
 		if (Buttons.ERROR.check()) {

@@ -2,7 +2,8 @@ package com.bot.account;
 
 import java.util.List;
 
-import com.database.model.EigenesDorf;
+import com.bot.model.EigenesDorf;
+
 
 
 public class Account {

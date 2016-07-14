@@ -1,6 +1,5 @@
 package com.database.model;
 
-import java.awt.Point;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,50 +8,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.bot.settings.Utils;
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 
 @Entity
 @Table(name = "DORF")
-public abstract class Dorf {
+public class Dorf {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "POSITION", nullable = false)
-	private Point position;
+
+	@Column(name = "X", nullable = false)
+	private int x;
+	@Column(name = "Y", nullable = false)
+	private int y;
 
 	@Column(name = "NAME", nullable = false)
 	private String name;
+	@Column(name = "LASTATTACK", nullable = false)
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    private LocalDateTime time;
 
-	public Dorf(int x, int y, String n) {
-
-		this.position = new Point(x, y);
+	public Dorf(int x, int y, String n, LocalDateTime time) {
+		this.x = x;
+		this.y = y;
 		this.name = n;
+		this.time = time;
+
 	}
 
 	public Dorf() {
 		super();
-	}
-
-	public Dorf(int x, int y) {
-		this.position = new Point(x, y);
-		this.name = "DefaultDorf";
-	}
-
-	public Point getPosition() {
-		return position;
-	}
-
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getId() {
@@ -63,11 +51,44 @@ public abstract class Dorf {
 		this.id = id;
 	}
 
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public LocalDateTime getTime() {
+		return time;
+	}
+
+	public void setTime(LocalDateTime time) {
+		this.time = time;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((position == null) ? 0 : position.hashCode());
+		result = prime * result + x;
+		result = prime * result + y;
 		return result;
 	}
 
@@ -80,17 +101,17 @@ public abstract class Dorf {
 		if (getClass() != obj.getClass())
 			return false;
 		Dorf other = (Dorf) obj;
-		if (position == null) {
-			if (other.position != null)
-				return false;
-		} else if (!position.equals(other.position))
+		if (x != other.x)
+			return false;
+		if (y != other.y)
 			return false;
 		return true;
 	}
 
-	public double getDistance() {
-		return Math.sqrt(Math.pow(this.getPosition().getX() - Utils.CURRENT.getPosition().getX(), 2)
-				+ Math.pow(this.getPosition().getY() - Utils.CURRENT.getPosition().getY(), 2));
+	@Override
+	public String toString() {
+		return "Dorf [id=" + id + ", x=" + x + ", y=" + y + ", name=" + name + ", time=" + time + "]";
 	}
+	
 
 }

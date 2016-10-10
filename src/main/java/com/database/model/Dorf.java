@@ -25,16 +25,17 @@ public class Dorf {
 	@Column(name = "Y", nullable = false)
 	private int y;
 
-	@Column(name = "NAME", nullable = false)
+	@Column(name = "NAME")
 	private String name;
-	@Column(name = "LASTATTACK", nullable = false)
+	
+	@Column(name = "LASTATTACK")
     @Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
     private LocalDateTime time;
 
-	public Dorf(int x, int y, String n, LocalDateTime time) {
+	public Dorf(int x, int y, String name, LocalDateTime time) {
 		this.x = x;
 		this.y = y;
-		this.name = n;
+		this.name = name;
 		this.time = time;
 
 	}

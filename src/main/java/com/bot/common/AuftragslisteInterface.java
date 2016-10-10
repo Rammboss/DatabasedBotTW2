@@ -14,5 +14,5 @@ public interface AuftragslisteInterface {
 	
 	public void clear();
 	
-	public int countsAuftraege(Class<Auftrag> c);
+	public int countsAuftraege(String c);
 }

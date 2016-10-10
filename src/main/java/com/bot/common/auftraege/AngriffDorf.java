@@ -41,10 +41,10 @@ public class AngriffDorf extends CheckError {
 		DorfService service = (DorfService) context.getBean("dorfService");
 		//if (!service.findById(farm.getId()).isEmpty()) {
 			Dorf b = (Dorf) service.findById(farm.getId());
-			b.setId(farm.getId());
-			b.setName(farm.getName());
-			b.setX(farm.getX());
-			b.setY(farm.getY());
+//			b.setId(farm.getId());
+//			b.setName(farm.getName());
+//			b.setX(farm.getX());
+//			b.setY(farm.getY());
 			b.setTime(new LocalDateTime());
 			service.updateDorf(b);
 		//}

@@ -13,6 +13,7 @@ import com.bot.common.AuftragslisteInterface;
 import com.bot.common.auftraege.AngriffDorf;
 import com.bot.model.Babarendorf;
 import com.bot.model.Dorf;
+import com.bot.model.Gegnerdorf;
 import com.bot.settings.Utils;
 import com.database.configuration.AppConfig;
 import com.database.service.DorfService;
@@ -41,6 +42,7 @@ public class BabaFarmFactory {
 	}
 
 	private void updateList() {
+		babaliste.clear();
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
 		DorfService service = (DorfService) context.getBean("dorfService");
@@ -53,9 +55,9 @@ public class BabaFarmFactory {
 				babaliste.add(b);
 			}
 
-			for (Babarendorf c : babaliste) {
-				System.out.println(c);
-			}
+//			for (Babarendorf c : babaliste) {
+//				System.out.println(c);
+//			}
 
 		}
 		context.close();
@@ -67,13 +69,13 @@ public class BabaFarmFactory {
 
 			@Override
 			public int compare(Dorf o1, Dorf o2) {
-				return (int) (o1.getDistance() * 1000 - o2.getDistance() * 1000);
+				return (int) (Utils.CURRENT.getDistance() * 1000 - o2.getDistance() * 1000);
 			}
 		});
 	}
 
 	public void check() {
-		if (liste.size() < 5) {
+		if (liste.countsAuftraege("Angriffdorf") < 5) {
 			updateList();
 			
 			for(int i = 0; i < babaliste.size(); i++){

@@ -62,13 +62,13 @@ public class Auftragsliste implements AuftragslisteInterface {
 
 	@Override
 	/**
-	 * Funktiniert nicht
+	 * Geht
+	 * 
 	 */
-	public int countsAuftraege(Class<Auftrag> c) {
+	public int countsAuftraege(String c) {
 		int counter = 0;
-		System.out.println("");
 		for(AuftragInterface a : liste){
-			if(a.getClass().equals(c.getClass()))
+			if(a.getClass().getSimpleName().equals(c.getClass()))
 				counter++;
 		}
 		return counter;

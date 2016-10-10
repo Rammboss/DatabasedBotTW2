@@ -40,7 +40,6 @@ public class Icon implements IconInterface {
 		int counter = 0;
 
 		while (counter < withinMillisecounds / 200) {
-			System.out.println(check());
 			if (check()) {
 
 				return true;
@@ -50,7 +49,6 @@ public class Icon implements IconInterface {
 			counter++;
 
 		}
-		System.out.println(this.path);
 		return false;
 
 	}

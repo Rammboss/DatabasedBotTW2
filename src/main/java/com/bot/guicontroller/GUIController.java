@@ -3,6 +3,7 @@ package com.bot.guicontroller;
 import com.bot.common.AuftragslisteInterface;
 import com.bot.common.auftraege.Auftrag;
 import com.bot.common.auftraege.AuftragInterface;
+import com.bot.common.auftraege.NothingToDo;
 import com.bot.settings.Utils;
 
 public class GUIController implements Runnable {
@@ -26,11 +27,11 @@ public class GUIController implements Runnable {
 					a.setPriority(a.getPriority() + 1);
 					list.add(a);
 				}
+				
 
 			}
-			System.out.println( "Anzahl Aufträge: " + list.size());
-			
-			
+			System.out.println("Anzahl Aufträge: " + list.size());
+
 			MouseRobot.wait(1000);
 		}
 	}
